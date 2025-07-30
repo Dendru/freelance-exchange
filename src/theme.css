@@ -439,6 +439,11 @@ h3 {
   color: #c25205;
 }
 
+.badge.pending {
+  border-color: rgb(35, 35, 238);
+  color: rgb(35, 35, 238);
+}
+
 .text-white {
   color: #fff;
 }

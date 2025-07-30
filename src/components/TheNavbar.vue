@@ -4,7 +4,7 @@
 
     <ul class="navbar-menu">
       <li>
-        <router-link to="/">Все задачи</router-link>
+        <router-link to="/tasks">Все задачи</router-link>
       </li>
       <li>
         <router-link to="/new">Создать</router-link>
@@ -13,8 +13,6 @@
   </nav>
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style scoped></style>
