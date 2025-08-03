@@ -25,10 +25,10 @@ export default {
 
     const statusClass = computed(() => {
       const map = {
-        done: "primary",
-        active: "warning",
+        done: "warning",
+        active: "primary",
         cancelled: "danger",
-        pending: "",
+        pending: "pending",
       };
       return map[props.type] || "";
     });
