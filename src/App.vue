@@ -6,9 +6,17 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
+import { useStore } from "vuex";
 import TheNavbar from "./components/TheNavbar.vue";
 export default {
   components: { TheNavbar },
+  setup() {
+    const store = useStore();
+    onMounted(() => {
+      store.dispatch("initTasks");
+    });
+  },
 };
 </script>
 

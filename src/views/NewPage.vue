@@ -44,14 +44,14 @@ export default {
       const deadlineDate = new Date(form.dateInput);
 
       let status = deadlineDate < now ? "cancelled" : "active";
-
-      store.dispatch("createTask", {
+      const taskData = {
         id: Date.now(),
         title: form.nameInput,
         deadline: form.dateInput,
         description: form.descriptionInput,
         status,
-      });
+      };
+      store.dispatch("createTask", taskData);
 
       form.nameInput = "";
       form.dateInput = "";

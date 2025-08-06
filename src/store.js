@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import { saveTasksToStorage, getTasksFromStorage } from "./utils/storage";
 
 export default createStore({
   state() {
@@ -7,6 +8,9 @@ export default createStore({
     };
   },
   mutations: {
+    SET_ALL_TASKS(state, tasks) {
+      state.tasksList = tasks;
+    },
     CREATE_TASK(state, newTask) {
       state.tasksList.push(newTask);
     },
@@ -16,11 +20,17 @@ export default createStore({
     },
   },
   actions: {
+    initTasks({ commit }) {
+      const tasks = getTasksFromStorage();
+      commit("SET_ALL_TASKS", tasks);
+    },
     createTask({ commit }, taskData) {
       commit("CREATE_TASK", taskData);
+      saveTasksToStorage(this.state.tasksList);
     },
     setStatus({ commit }, payload) {
       commit("SET_STATUS", payload);
+      saveTasksToStorage(this.state.tasksList);
     },
   },
   getters: {
